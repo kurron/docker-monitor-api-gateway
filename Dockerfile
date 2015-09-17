@@ -4,13 +4,10 @@ FROM kurron/docker-oracle-jdk-8:latest
 MAINTAINER Ron Kurr <kurr@jvmguy.com>
 
 # copy the application jar file from the build output directory into the image
-ADD https://bintray.com/artifact/download/kurron/maven/org/kurron/example/monitor-api-gateway/1.0.0.RELEASE/monitor-api-gateway-1.0.0.RELEASE.jar /opt/example/application.jar
+ADD https://bintray.com/artifact/download/kurron/maven/org/kurron/example/monitor-api-gateway/1.0.2.RELEASE/monitor-api-gateway-1.0.2.RELEASE.jar /opt/example/application.jar
 
 # expose the port that the application will be listening on
 EXPOSE 8000
 
-# set the working directory to where the application jar file was copied
-WORKDIR /opt/example
-
-ENTRYPOINT ["java", "-jar", "application.jar"]
+ENTRYPOINT ["java", "-jar", "/opt/example/application.jar"]
 
