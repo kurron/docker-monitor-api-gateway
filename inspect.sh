@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker inspect api-gateway 
+docker inspect api-gateway-service 
