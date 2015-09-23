@@ -1,5 +1,5 @@
 # Pre-built JDK 8 image
-FROM kurron/docker-oracle-jdk-8:latest
+FROM kurron/docker-newrelic-jvm-8-agent:latest
 
 MAINTAINER Ron Kurr <kurr@jvmguy.com>
 
@@ -9,5 +9,5 @@ ADD https://bintray.com/artifact/download/kurron/maven/org/kurron/example/monito
 # expose the port that the application will be listening on
 EXPOSE 8000
 
-ENTRYPOINT ["java", "-server", "-Xmx256m", "-Dsun.net.inetaddr.ttl=60", "-jar", "/opt/example/application.jar"]
+ENTRYPOINT ["java", "-server", "-javaagent:/opt/example/newrelic/newrelic.jar", "-Xmx256m", "-Dsun.net.inetaddr.ttl=60", "-jar", "/opt/example/application.jar"]
 
